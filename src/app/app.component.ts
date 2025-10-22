@@ -11,25 +11,15 @@ export class AppComponent {
 	localstorage = localStorage;
 	updated = false;
 
-	isUpdated() {
-		if (this.updated) {
-			this.products = Object.keys(localStorage);
-			this.updated = false;
-			return true;
-		} else {
-			return false;
-		}
-	}
-
 	addProduct() {
 		const productName = (<HTMLInputElement>document.getElementById("name")).value;
 		const productPrice = (<HTMLInputElement>document.getElementById("price")).value;
 		localStorage.setItem(productName, productPrice);
-		this.updated = true;
+		this.products = Object.keys(localStorage);
 	}
 
 	removeProduct(product: string) {
 		this.localstorage.removeItem(product);
-		this.updated = true;
+		this.products = Object.keys(localStorage);
 	}
 }

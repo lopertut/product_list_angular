@@ -6,7 +6,7 @@
         <th>Product</th>
         <th>Price</th>
     </tr>
-    @if (isUpdated()) {
+
     @for (product of products;track product) {
         <tr>
             <td>{{product}}</td>
@@ -14,13 +14,5 @@
             <td><button (click)="removeProduct(product)">remove</button></td>
         </tr>
     }
-    } @else {
-    @for (product of products;track product) {
-        <tr>
-            <td>{{product}}</td>
-            <td>{{localstorage.getItem(product)}}</td>
-            <td><button (click)="removeProduct(product)">remove</button></td>
-        </tr>
-    }
-    }
+    
 </table>
